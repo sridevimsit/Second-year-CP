@@ -30,4 +30,51 @@
 
 def playstep2(hand, dice):
 	# your code goes here
-	pass
+	l=handToDice(hand)
+	x=0
+	y=0
+	z=0
+	if l[0]==l[1]:
+		x=diceToOrderedHand(l[0],l[1],dice%10)
+		y=dice//10
+
+	elif l[1]==l[2]:
+		x=diceToOrderedHand(l[1],l[2],dice%10)
+		y=dice//10
+	elif l[2]==l[0]:
+		x=diceToOrderedHand(l[0],l[2],dice%10)
+		y=dice//10
+	else:
+		z=max(l)
+		
+		x=diceToOrderedHand(z,dice%10,(dice//10)%10)
+		y=dice//100
+	print(x,y)
+	return(x,y)
+
+def handToDice(hand):
+	#l=[hand%10 for i in range(hand) hand//=10 ]
+	l=[]
+	
+	while hand>0:
+		l.append(hand%10)
+		hand//=10
+		
+	print(l)
+	return l
+def diceToOrderedHand(a, b, c):
+	l=[]
+	l.append(a)
+	l.append(b)
+	l.append(c)
+	l.sort()
+
+	s=''
+	
+	for i in reversed(l):
+		s+=str(i)
+	print('diceToOrderedHand',int(s))
+	return (int(s))
+
+
+#print(playstep2(413, 2312)==(421, 23))
