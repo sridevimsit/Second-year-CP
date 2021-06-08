@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Collections;
+
 // This is the most complicated part. Write the function playstep2(hand, dice) that plays step 2 as
 // explained above. This function takes a hand, which is a 3-digit integer, and it also takes dice,
 // which is an integer containing all the future rolls of the dice. For example, if dice is 5341,
@@ -31,6 +34,88 @@
 public class PlayStep2 {
 	public int[] playStep2(int hand, int dice) {
 		// Your code goes here
-		return new int[0];		
+		int[] l = handToDice(hand);
+		int x = 0, y = 0, z = 0;
+		if (l[0] == l[1]) {
+			x = diceToOrderedHand(l[0], l[1], dice % 10);
+			y = dice / 10;
+		} else if (l[1] == l[2]) {
+			x = diceToOrderedHand(l[1], l[2], dice % 10);
+			y = dice / 10;
+		} else if (l[2] == l[0]) {
+			x = diceToOrderedHand(l[0], l[2], dice % 10);
+			y = dice / 10;
+		} else {
+			z = max(l);
+
+			x = diceToOrderedHand(z, dice % 10, (dice / 10) % 10);
+			y = dice / 100;
+		}
+		int[] res = new int[2];
+		res[0] = x;
+		res[1] = y;
+		return (res);
+
+	}
+
+	public int[] handToDice(int hand) {
+
+		int l[] = new int[3];
+
+		for (int i = 0; hand > 0; i++) {
+			l[i] = hand % 10;
+			hand /= 10;
+		}
+
+		return l;
+	}
+
+	public int diceToOrderedHand(int a, int b, int c) {
+		int arr[] = new int[3];
+		arr[0] = a;
+		arr[1] = b;
+		arr[2] = c;
+		Arrays.sort(arr);
+		int sum = 0;
+		for (int i = 2, x = 100; i >= 0; i--, x = x / 10) {
+			sum += arr[i] * x;
+		}
+
+		return sum;
+
+	}
+
+	public int max(int[] l) {
+		int maxx = 0;
+		for (int i = 0; i < l.length; i++) {
+
+			if (maxx < l[i]) {
+				maxx = l[i];
+			}
+		}
+		return maxx;
+
 	}
 }
+/*
+ * def playstep2(hand, dice): # your code goes here l=handToDice(hand) x=0 y=0
+ * z=0 if l[0]==l[1]: x=diceToOrderedHand(l[0],l[1],dice%10) y=dice//10
+ * 
+ * elif l[1]==l[2]: x=diceToOrderedHand(l[1],l[2],dice%10) y=dice//10 elif
+ * l[2]==l[0]: x=diceToOrderedHand(l[0],l[2],dice%10) y=dice//10 else: z=max(l)
+ * 
+ * x=diceToOrderedHand(z,dice%10,(dice//10)%10) y=dice//100 print(x,y)
+ * return(x,y)
+ * 
+ * def handToDice(hand): #l=[hand%10 for i in range(hand) hand//=10 ] l=[]
+ * 
+ * while hand>0: l.append(hand%10) hand//=10
+ * 
+ * print(l) return l def diceToOrderedHand(a, b, c): l=[] l.append(a)
+ * l.append(b) l.append(c) l.sort()
+ * 
+ * s=''
+ * 
+ * for i in reversed(l): s+=str(i) print('diceToOrderedHand',int(s)) return
+ * (int(s))
+ */
