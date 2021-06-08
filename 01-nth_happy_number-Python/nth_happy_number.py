@@ -9,14 +9,22 @@
 # assert(nthHappyNumber(5) == 23)
 # assert(nthHappyNumber(6) == 28)
 # assert(nthHappyNumber(7) == 31)
+def sumOfSquaresOfDigits(num):
+	rem = sum=0
+	
+	while(num > 0):    
+		rem = num%10    
+		sum = sum + (rem*rem)    
+		num = num//10    
+	return sum  
 
 def isHappyNumber(n):
-    past = set()			
+    set1 = set()			
     while n != 1:
-        n = sum(int(i)**2 for i in str(n))
-        if n in past:
+        n = sumOfSquaresOfDigits(n)
+        if n in set1:
             return False
-        past.add(n)
+        set1.add(n)
     return True
 
 def fun_nth_happy_number(i):
