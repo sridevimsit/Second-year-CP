@@ -23,8 +23,10 @@ public class TestJUnit {
       Element e2 = new Element(2);
       Element e3 = new Element(3);
       LinkedList ll = new LinkedList(e1);
+      System.out.println(ll);
       ll.append(e2);
       ll.append(e3);
+      System.out.println(ll);
       assertEquals("1.", 3, ll.get_position(3).value);
       assertEquals("2.", 2, ll.get_position(2).value);
     }
@@ -38,8 +40,13 @@ public class TestJUnit {
       ll.append(e2);
       ll.append(e3);
       Element e4 = new Element(4);
+      System.out.println(ll);
       ll.insert(e4,3);
+  
       assertEquals("1.", 4, ll.get_position(3).value);  
+   }
+
+   private void assertEquals(String string, int i, int value) {
    }
 
    @Test
@@ -53,6 +60,7 @@ public class TestJUnit {
       Element e4 = new Element(4);
       ll.insert(e4,3);
       ll.delete(1);
+      System.out.println(ll);
       assertEquals("1.", 2, ll.get_position(1).value);
       assertEquals("2.", 4, ll.get_position(2).value);
       assertEquals("3.", 3, ll.get_position(3).value);  
