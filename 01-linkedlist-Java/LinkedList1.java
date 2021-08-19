@@ -8,9 +8,9 @@ class Element{
 	}
 }
 
-public class LinkedList{
+public class LinkedList1{
 	Element head;
-	public LinkedList(Element head){
+	public LinkedList1(Element head){
 		this.head = head;
 	}
 

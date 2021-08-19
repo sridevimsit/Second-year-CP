@@ -22,7 +22,7 @@ public class TestJUnit {
       Element e1 = new Element(1);
       Element e2 = new Element(2);
       Element e3 = new Element(3);
-      LinkedList ll = new LinkedList(e1);
+      LinkedList1 ll = new LinkedList1(e1);
       System.out.println(ll);
       ll.append(e2);
       ll.append(e3);
@@ -36,7 +36,7 @@ public class TestJUnit {
       Element e1 = new Element(1);
       Element e2 = new Element(2);
       Element e3 = new Element(3);
-      LinkedList ll = new LinkedList(e1);
+      LinkedList1 ll = new LinkedList1(e1);
       ll.append(e2);
       ll.append(e3);
       Element e4 = new Element(4);
@@ -54,7 +54,7 @@ public class TestJUnit {
       Element e1 = new Element(1);
       Element e2 = new Element(2);
       Element e3 = new Element(3);
-      LinkedList ll = new LinkedList(e1);
+      LinkedList1 ll = new LinkedList1(e1);
       ll.append(e2);
       ll.append(e3);
       Element e4 = new Element(4);
