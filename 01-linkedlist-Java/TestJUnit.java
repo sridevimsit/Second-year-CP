@@ -22,7 +22,7 @@ public class TestJUnit {
       Element e1 = new Element(1);
       Element e2 = new Element(2);
       Element e3 = new Element(3);
-      LinkedList1 ll = new LinkedList1(e1);
+      LinkedList ll = new LinkedList(e1);
       System.out.println(ll);
       ll.append(e2);
       ll.append(e3);
@@ -36,13 +36,13 @@ public class TestJUnit {
       Element e1 = new Element(1);
       Element e2 = new Element(2);
       Element e3 = new Element(3);
-      LinkedList1 ll = new LinkedList1(e1);
+      LinkedList ll = new LinkedList(e1);
       ll.append(e2);
       ll.append(e3);
       Element e4 = new Element(4);
       System.out.println(ll);
       ll.insert(e4,3);
-  
+      System.out.println(ll);
       assertEquals("1.", 4, ll.get_position(3).value);  
    }
 
@@ -54,11 +54,12 @@ public class TestJUnit {
       Element e1 = new Element(1);
       Element e2 = new Element(2);
       Element e3 = new Element(3);
-      LinkedList1 ll = new LinkedList1(e1);
+      LinkedList ll = new LinkedList(e1);
       ll.append(e2);
       ll.append(e3);
       Element e4 = new Element(4);
       ll.insert(e4,3);
+      System.out.println(ll);
       ll.delete(1);
       System.out.println(ll);
       assertEquals("1.", 2, ll.get_position(1).value);
